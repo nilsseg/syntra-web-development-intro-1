@@ -7,6 +7,19 @@
 </head>
 <body>
 <script>
+  const pressed = []
+  const key = 'nils'
+  window.addEventListener('keyup', (event) => {
+    console.log(event.key)
+    pressed.push(event.key)
+    console.log(pressed)
+    pressed.splice(-key.length-1, pressed.length - key.length)
+    if (pressed.join("").includes(key)){
+    cornify_add()
+    }
+    console.log(pressed)
+    })
+
 </script>
 </body>
 </html>

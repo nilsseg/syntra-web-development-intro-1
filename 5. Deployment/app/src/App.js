@@ -1,22 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
+import React from 'react';
+import { useImage } from './useAxios';
+import {useUrlPicker } from "./useUrlPicker";
 
 function App() {
+  const { selectedUrl, picker } = useUrlPicker()
+  const { data, loading, error } = useImage("https://picsum.photos/id/237/200/300");
+
+  console.log(data, loading, error);
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      {picker}
+      {(() => {
+        if (!selectedUrl) return <p>YOU GOTTA SELECT YO</p>        
+        if (error) return <p>OH NOOOO...</p>
+        if (loading) return <p>LOADING.....</p>
+        return <img src={data} className="App-logo" alt="logo"></img>;
+      })()}
       </header>
     </div>
   );

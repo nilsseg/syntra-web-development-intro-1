@@ -182,6 +182,29 @@
     </li>
   </ul>
 <script>
+
+const videoList= Array.from(document.querySelectorAll('[data-time]'));
+console.log(videoList)
+
+const times = videoList.map(video => video.dataset.time);
+console.log(times)
+
+const timeSplit = times.map(time => time.split(":"));
+console.log(timeSplit)
+
+const seconds = timeSplit.map(second => Number(second[0])*60 + Number(second[1]))
+console.log(seconds)
+
+const totalSeconds = seconds.reduce(function(acc,cv) {
+  return acc + cv
+})
+console.log(totalSeconds)
+
+const totalSeconds2 = seconds.reduce((acc, cv)=> acc +cv)
+console.log(totalSeconds2)
+
+const totalTime = new Date(totalSeconds * 1000).toISOString().substr(11, 8);
+console.log(totalTime)
 </script>
 </body>
 </html>

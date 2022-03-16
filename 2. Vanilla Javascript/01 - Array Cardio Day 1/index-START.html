@@ -27,6 +27,65 @@
         { first: "Hanna", last: "Hammarström", year: 1829, passed: 1909 },
       ];
 
+      // 1. Filter the list of inventors for those who were born in the 1500's
+      // declaratief
+      const fifteen2 = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year <= 1600))
+      console.log(fifteen2)
+
+      // imperatief
+      const filtered = [];
+      for (let i = 0; i < inventors.length; i++){
+        if (inventors[i].year >= 1500 && inventors[i].year < 1600) {
+          filtered.push(inventors[i])
+        }
+      }
+
+      // 2. Give us an array of the inventors first and last names
+      const fullName2 = inventors.map(inventor => inventor.first + " " + inventor.last)
+        console.log(fullName2)
+      // 3. Sort the inventors by birthdate, oldest to youngest
+      const ageRank2= inventors.sort((a,b) => a.year - b.year)
+      console.log(ageRank2)
+      // 4. How many years did all the inventors live all together?
+      // const oldies = inventors.reduce((acc, age) => {
+      //   return acc + (age.passed - age.year);
+      // },0)
+      // console.log(oldies
+      
+      const oldies = inventors.reduce((total, inventor) => {
+        return total + (inventor.passed - inventor.year)
+      },0)
+      console.log(oldies)
+
+      // 5. Sort the inventors by years lived
+      const sortedInventors = inventors.map(inventor => ({
+        ...inventor,
+        age: inventor.passed -inventor.year
+      })).sort((a,b) => a.age - b.age);
+
+      console.log(sortedInventors)
+
+      // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
+      // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
+      // de code gewoon schrijver in de console van de pagina
+      
+      // const linkContainer = document.querySelector(".mw-category")
+      // undefined
+      // linkContainer
+      // <div class=​"mw-category mw-category-columns">​…​</div>​
+      // const links = linkContainer.querySelector("a")
+      // undefined
+      // const linkss = linkContainer.querySelectorAll("a")
+      // undefined
+      // linkss
+      // NodeList(39) [a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a, a]0: a1: a2: a3: a4: a5: a6: a7: a8: a9: a10: a11: a12: a13: a14: a15: a16: a17: a18: a19: a20: a21: a22: a23: a24: a25: a26: a27: a28: a29: a30: a31: a32: a33: a34: a35: a36: a37: a38: alength: 39[[Prototype]]: NodeList
+      // const filtered = Array.from(linkss).filter(link => link.textContent.includes("de"))
+      // undefined
+      // filtered
+      // (12) [a, a, a, a, a, a, a, a, a, a, a, a]0: aaccessKey: ""ariaAtomic: nullariaAutoComplete: nullariaBusy: nullariaChecked: nullariaColCount: nullariaColIndex: nullariaColSpan: nullariaCurrent: nullariaDescription: nullariaDisabled: nullariaExpanded: nullariaHasPopup: nullariaHidden: nullariaKeyShortcuts: nullariaLabel: nullariaLevel: nullariaLive: nullariaModal: nullariaMultiLine: nullariaMultiSelectable: nullariaOrientation: nullariaPlaceholder: nullariaPosInSet: nullariaPressed: nullariaReadOnly: nullariaRelevant: nullariaRequired: nullariaRoleDescription: nullariaRowCount: nullariaRowIndex: nullariaRowSpan: nullariaSelected: nullariaSetSize: nullariaSort: nullariaValueMax: nullariaValueMin: nullariaValueNow: nullariaValueText: nullassignedSlot: nullattributeStyleMap: StylePropertyMap {size: 0}attributes: NamedNodeMap {0: href, 1: title, href: href, title: title, length: 2}autocapitalize: ""autofocus: falsebaseURI: "https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris"charset: ""childElementCount: 0childNodes: NodeList [text]children: HTMLCollection []classList: DOMTokenList [value: '']className: ""clientHeight: 0clientLeft: 0clientTop: 0clientWidth: 0contentEditable: "inherit"coords: ""dataset: DOMStringMap {}dir: ""download: ""draggable: trueelementTiming: ""enterKeyHint: ""firstChild: textfirstElementChild: nullhash: ""hidden: falsehost: "en.wikipedia.org"hostname: "en.wikipedia.org"href: "https://en.wikipedia.org/wiki/Boulevard_de_l%27Amiral-Bruix"hrefTranslate: ""hreflang: ""id: ""innerHTML: "💩"innerText: "💩"inputMode: ""isConnected: trueisContentEditable: falselang: ""lastChild: textlastElementChild: nulllocalName: "a"name: ""namespaceURI: "http://www.w3.org/1999/xhtml"nextElementSibling: nullnextSibling: nullnodeName: "A"nodeType: 1nodeValue: nullnonce: ""offsetHeight: 16offsetLeft: 22offsetParent: div#bodyContent.vector-bodyoffsetTop: 612offsetWidth: 20onabort: nullonanimationend: nullonanimationiteration: nullonanimationstart: nullonauxclick: nullonbeforecopy: nullonbeforecut: nullonbeforepaste: nullonbeforexrselect: nullonblur: nulloncancel: nulloncanplay: nulloncanplaythrough: nullonchange: nullonclick: nullonclose: nulloncontextlost: nulloncontextmenu: nulloncontextrestored: nulloncopy: nulloncuechange: nulloncut: nullondblclick: nullondrag: nullondragend: nullondragenter: nullondragleave: nullondragover: nullondragstart: nullondrop: nullondurationchange: nullonemptied: nullonended: nullonerror: nullonfocus: nullonformdata: nullonfullscreenchange: nullonfullscreenerror: nullongotpointercapture: nulloninput: nulloninvalid: nullonkeydown: nullonkeypress: nullonkeyup: nullonload: nullonloadeddata: nullonloadedmetadata: nullonloadstart: nullonlostpointercapture: nullonmousedown: nullonmouseenter: nullonmouseleave: nullonmousemove: nullonmouseout: nullonmouseover: nullonmouseup: nullonmousewheel: nullonpaste: nullonpause: nullonplay: nullonplaying: nullonpointercancel: nullonpointerdown: nullonpointerenter: nullonpointerleave: nullonpointermove: nullonpointerout: nullonpointerover: nullonpointerrawupdate: nullonpointerup: nullonprogress: nullonratechange: nullonreset: nullonresize: nullonscroll: nullonsearch: nullonsecuritypolicyviolation: nullonseeked: nullonseeking: nullonselect: nullonselectionchange: nullonselectstart: nullonslotchange: nullonstalled: nullonsubmit: nullonsuspend: nullontimeupdate: nullontoggle: nullontransitioncancel: nullontransitionend: nullontransitionrun: nullontransitionstart: nullonvolumechange: nullonwaiting: nullonwebkitanimationend: nullonwebkitanimationiteration: nullonwebkitanimationstart: nullonwebkitfullscreenchange: nullonwebkitfullscreenerror: nullonwebkittransitionend: nullonwheel: nullorigin: "https://en.wikipedia.org"outerHTML: "<a href=\"/wiki/Boulevard_de_l%27Amiral-Bruix\" title=\"Boulevard de l'Amiral-Bruix\">💩</a>"outerText: "💩"ownerDocument: documentparentElement: liparentNode: lipart: DOMTokenList [value: '']password: ""pathname: "/wiki/Boulevard_de_l%27Amiral-Bruix"ping: ""port: ""prefix: nullpreviousElementSibling: nullpreviousSibling: nullprotocol: "https:"referrerPolicy: ""rel: ""relList: DOMTokenList [value: '']rev: ""scrollHeight: 0scrollLeft: 0scrollTop: 0scrollWidth: 0search: ""shadowRoot: nullshape: ""slot: ""spellcheck: truestyle: CSSStyleDeclaration {accentColor: '', additiveSymbols: '', alignContent: '', alignItems: '', alignSelf: '', …}tabIndex: 0tagName: "A"target: ""text: "💩"textContent: "💩"title: "Boulevard de l'Amiral-Bruix"translate: truetype: ""username: ""virtualKeyboardPolicy: ""[[Prototype]]: HTMLAnchorElement(...)1: a2: a3: a4: a5: a6: a7: a8: a9: a10: a11: alength: 12[[Prototype]]: Array(0)
+      // filtered.forEach(link => link.textContent = "💩")
+      // undefined
+
       const people = [
         "Bernhard, Sandra",
         "Bethea, Erin",
@@ -72,19 +131,28 @@
       ];
 
       // 1. Filter the list of inventors for those who were born in the 1500's
-
+        const fifteen = inventors.filter(inventor => (inventor.year >= 1500 && inventor.year < 1600));
+        console.log(fifteen)
       // 2. Give us an array of the inventors first and last names
-
+        const fullName = inventors.map(inventor => inventor.first + " " + inventor.last)
+        console.log(fullName)
       // 3. Sort the inventors by birthdate, oldest to youngest
-
+      const ageRank= inventors.sort(function (a,b){return a.year - b.year})
+      console.log(ageRank)
       // 4. How many years did all the inventors live all together?
-
+      const allYears = inventors.reduce((total, inventor) => {
+        return total + (inventor.passed - inventor.year)
+      },0)
+      console.log(allYears)
       // 5. Sort the inventors by years lived
+      const oldest = inventors.sort(function(a,b) {
 
+      })
       // 6. create a list of Boulevards in Paris that contain 'de' anywhere in the name
       // https://en.wikipedia.org/wiki/Category:Boulevards_in_Paris
 
       // Sort the people alphabetically by last name
+
 
       // Sum up the instances of each of these
       const data = [
@@ -103,6 +171,26 @@
         "car",
         "truck",
       ];
+
+      // const count = {};
+      // for (const element of data) {
+      //   if (count[element]) {
+      //     count[element]+=1
+      //   } else {
+      //     count[element] = 1
+      //   }
+      // }
+      // console.log(count)
+
+      const alternateCount = data.reduce((acc, cv) =>{
+          if (!acc[cv]) {
+            acc[cv] = 0;
+          }
+          acc[cv]++;
+        return acc
+      }, {})
+      console.log(alternateCount)
+
     </script>
   </body>
 </html>

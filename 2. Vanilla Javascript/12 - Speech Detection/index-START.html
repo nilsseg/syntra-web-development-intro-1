@@ -11,7 +11,44 @@
 
 <script>
   window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  const recognition = new SpeechRecognition();
+  recognition.interimResults = true;
+  recognition.lang = 'nl-be';
 
+  const words = document.querySelector('.words')
+  let p = document.createElement('p');
+  words.appendChild(p);
+
+  // recognition.addEventListener("result", (e) => {
+  // const script = e.results[0][0].transcript;
+  // const isFinal = e.result[0].isFinal;
+
+
+  recognition.addEventListener("result", (e) => {
+const script = Array.from(e.results)
+.map((result) => result[0])
+.map((result) => result.transcript)
+.join("");
+const isFinal = e.results[0].isFinal;
+p.textContent = script;
+
+const poopScript = script.replace(/kak|kaka/gi, '💩');
+p.textContent = poopScript;
+
+  if (isFinale) {
+    p = document.createElement("p");
+    words.appendChild(p)
+  }
+    
+    console.log(e)
+    console.log(script)
+    
+  });
+
+
+
+  recognition.addEventListener("end", recognition.start);
+  recognition.start();
 
 </script>
 

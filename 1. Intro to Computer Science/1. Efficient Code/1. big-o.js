@@ -2,7 +2,11 @@
  * Write a function that prints every even number of a list of numbers
  * O(N)
  */
-function print_even_numbers() {}
+function print_even_numbers(nums) {
+  const nums=[2, 4, 7 ,9, 10];
+let even = nums.filter(nums => nums %2 ==0)
+}
+console.log(even)
 
 /**
  * Look at the functions below, what is the time complexity?
